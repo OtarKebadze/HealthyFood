@@ -33,7 +33,7 @@ class Producto {
 }
 
 const producto1= new Producto(1 , 'ensalada cesar' , 55 , true);
-const producto2= new Producto(2 , 'mix de hojas verdes' , 20 ,true);
+const producto2= new Producto(2 , 'ensalada mix de hojas verdes' , 20 ,true);
 const producto3= new Producto(3 , 'ensalada mixta pollo' , 70 , true);
 const producto4= new Producto (4, 'ensalada mixta con lomito de atun' , 70 , true);
 const producto5= new Producto (5, 'ensalada mixta con camarones', 85 , true);
@@ -43,27 +43,27 @@ const producto8= new Producto (8 ,'ensalada light ' , 60 , true);
 const producto9= new Producto (9 ,'ensalada rusa' , 80 , true);
 const producto10= new Producto (10 ,'ensalada waldorf' , 60 , true);
 
-const nuestrosProductos= new Compra ( [producto1,producto2,producto3,producto4,producto5,producto6,producto7,producto8, producto9, producto10]);
+const nuestrosProductos= new Compra ([producto1,producto2,producto3,producto4,producto5,producto6,producto7,producto8, producto9, producto10]);
 
 console.log (nuestrosProductos.listaItems());
 
 console.log (nuestrosProductos.findItemById(4));
 
 
-console.log (typeof Compra);
+console.log (typeof nuestrosProductos);
 
-const filtro = Compra.filter (elemento => elemento.includes('ensalada'));
-console.log (filtro);
-
+let a=true;
 
 let ensalada = prompt ('Que ensalada desea comprar?');
-
-
-
-if (ensalada===filtro){
-    alert ( 'Gracias por tu compra' );
-}else{
-    alert ( 'el elemento seleccionado no existe' );
+nuestrosProductos.lista.forEach(element => {
+    if (element.nombre === ensalada){
+    alert( 'Gracias por la compra de tu '+ ensalada);
+    a=false;
+    return;
+    }
+})
+if (a){
+    alert ('La ensalada que usted trata de comprar, no existe.');
 }
 
 
