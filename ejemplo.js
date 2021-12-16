@@ -1,18 +1,22 @@
-let nombre= prompt('Porfavor ingresa tu nombre');
-let apellido= prompt('Porfavor a continuacion, ingresa tu apellido');
+// let nombre= prompt('Porfavor ingresa tu nombre');
+// let apellido= prompt('Porfavor a continuacion, ingresa tu apellido');
 
 
 
-alert (`Bienvenido a HealthyLife ${nombre} ${apellido}`);
+// alert (`Bienvenido a HealthyLife ${nombre} ${apellido}`);
 
 
 
-class Compra {
+class Carrito {
     constructor (lista){
         this.lista=lista;
     }
     listaItems(){
         return this.lista;
+    }
+    createItem(item){
+        this.lista.push(item);
+        localStorage.setItem('compra', JSON.stringify(this.lista));
     }
     findItemById(itemId){
         const item = this.lista.find ( element => element.id===itemId);
@@ -32,6 +36,22 @@ class Producto {
     }
 }
 
+const renderList = (listaId, lista) =>{
+    
+    const listaContainer= document.getElementById(listaId);
+
+    for ( const item of lista){
+
+        const itemList = document.createElement ('li')
+
+        itemList.innerText = item.nombre
+        
+        listaContainer.appendChild(itemList)
+    
+    }
+}
+
+/* Creando productos*/
 const producto1= new Producto(1 , 'ensalada cesar' , 55 , true);
 const producto2= new Producto(2 , 'ensalada mix de hojas verdes' , 20 ,true);
 const producto3= new Producto(3 , 'ensalada mixta pollo' , 70 , true);
@@ -43,7 +63,9 @@ const producto8= new Producto (8 ,'ensalada light ' , 60 , true);
 const producto9= new Producto (9 ,'ensalada rusa' , 80 , true);
 const producto10= new Producto (10 ,'ensalada waldorf' , 60 , true);
 
-const nuestrosProductos= new Compra ([producto1,producto2,producto3,producto4,producto5,producto6,producto7,producto8, producto9, producto10]);
+
+
+const nuestrosProductos= new Carrito ([producto1,producto2,producto3,producto4,producto5,producto6,producto7,producto8, producto9, producto10]);
 
 console.log (nuestrosProductos.listaItems());
 
@@ -52,19 +74,25 @@ console.log (nuestrosProductos.findItemById(4));
 
 console.log (typeof nuestrosProductos);
 
-let a=true;
+// Compra simulada 
 
-let ensalada = prompt ('Que ensalada desea comprar?');
-nuestrosProductos.lista.forEach(element => {
-    if (element.nombre === ensalada){
-    alert( 'Gracias por la compra de tu '+ ensalada);
-    a=false;
-    return;
-    }
-})
-if (a){
-    alert ('La ensalada que usted trata de comprar, no existe.');
-}
+const carrito = new Carrito (
+    [producto1 , producto2, producto3]
+)
+console.log (carrito);
+
+carrito.createItem(producto8)
+console.log (carrito);
+const carritoFromStorage =JSON.parse(localStorage.getItem('compra'));
+console.log (carritoFromStorage);
+
+
+/*COMPRA TRASLADADA A DOM*/
+
+
+
+const carroCompra = carrito.listaItems();
+renderList('tuCompra', carroCompra);
 
 
 

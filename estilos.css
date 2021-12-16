@@ -9,6 +9,11 @@
     color:#dd873b;
     margin: 1rem;
 }
+#tuCompra{
+    height:100%;
+    word-wrap: break-word;
+    overflow-y: scroll;
+}
 body{
     display: grid;
     grid-template-areas:'nav nav'
@@ -72,11 +77,6 @@ body{
     font-size: 1.5rem;
     height: 33rem;
     padding: 1rem;
-}
-.compra__contenido--mensaje{
-    height:100%;
-    word-wrap: break-word;
-    overflow-y: scroll;
 }
 .contenedorFooter{
     grid-area: footer;
