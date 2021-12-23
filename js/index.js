@@ -30,4 +30,4 @@ renderList('listaProductos', nuestrosProductos);
 
 const botonComprar = document.getElementById ('botonCompra')
 botonComprar.addEventListener ('click', function(){
-alert (`Usted ha comprado${ JSON.stringify(carrito.listaItems()) }`)})
+alert (`Gracias por realizar su compra`)})
