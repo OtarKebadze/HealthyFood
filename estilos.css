@@ -75,8 +75,19 @@ body{
 .compra__contenido{
     text-align: center;
     font-size: 1.5rem;
-    height: 33rem;
+    height: 30rem;
     padding: 1rem;
+}
+.contenedor__boton{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.boton__compra , .boton__compraCancela{
+    border-radius: 10%;
+    width: 30%;
+    
 }
 .contenedorFooter{
     grid-area: footer;
