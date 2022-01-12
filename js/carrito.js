@@ -7,7 +7,7 @@ export class Carrito {
     }
     createItem(item) {
         this.lista.push(item);
-        localStorage.setItem('compra', JSON.stringify(this.lista));
+        localStorage.setItem('compra',JSON.stringify(this.lista));
     }
     findItemById(itemId) {
         const item = this.lista.find(element => element.id === itemId);
