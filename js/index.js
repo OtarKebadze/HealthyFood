@@ -8,7 +8,7 @@ import {nuestrosProductos} from './productos.js'
 const carrito = new Carrito ();
 
 for ( const producto of nuestrosProductos){
-    $('#principal__productos').append(`<p> ${producto.nombre} </p>`)
+    $('#productos__contenido').append(`<p> ${producto.nombre} </p>`)
 };
 
 const botonComprar = document.getElementById ('botonCompra');
