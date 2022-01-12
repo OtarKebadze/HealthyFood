@@ -7,11 +7,10 @@ import {nuestrosProductos} from './productos.js'
 /* Creando carrito vacio*/
 const carrito = new Carrito ();
 
-for ( const producto of productos){
-    $("#principal__compra").append("<p>${item.name}</p>")
-}
+for ( const producto of nuestrosProductos){
+    $('#principal__productos').append(`<p> ${producto.nombre} </p>`)
+};
 
-
-const botonComprar = document.getElementById ('botonCompra')
+const botonComprar = document.getElementById ('botonCompra');
 botonComprar.addEventListener ('click', function(){
-alert (`Gracias por realizar su compra`)})
+alert (`Gracias por realizar su compra`)});
