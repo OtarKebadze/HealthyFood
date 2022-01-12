@@ -20,5 +20,6 @@ export class Carrito {
         const item = this.findItemById(itemId);
         const index = this.lista.indexOf(item);
         this.lista.splice(index, 1);
+        localStorage.setItem("compra", JSON.stringify(this.lista))
     }
 }
