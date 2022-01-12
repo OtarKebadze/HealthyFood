@@ -23,11 +23,11 @@ const renderList = (listaId, lista) =>{
             carrito.createItem (item)
             })
     }
-}
+};
 renderList('listaProductos', nuestrosProductos);
 
 
 
 const botonComprar = document.getElementById ('botonCompra')
 botonComprar.addEventListener ('click', function(){
-alert (`Gracias por realizar su compra`)})
+alert (`Gracias por realizar su compra`)});
