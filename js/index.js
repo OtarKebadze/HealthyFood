@@ -13,16 +13,19 @@ console.log(carrito.listaItems());
 for ( const producto of nuestrosProductos){
     $('#productos__contenido').append(`<li id="${producto.id}">${producto.nombre} </li>`);
     $(`#${producto.id}`).click(function(){
-    carrito.createItem();
+    carrito.createItem(producto.nombre);
+    console.log(carrito);
     ($("#tuCompra").append(`<li>${producto.nombre}</li>`));
     })
 };
 /*Botones Compra*/
 $("#botonCompra").click(function(){
-    alert( `Gracias por comprar ${ JSON.stringify(carrito.listaItems())}`)
+    alert( `Gracias por su Compra!`)
+    location.reload();
     });
 
     $("#botonCancela").click(function(){
     localStorage.clear();
+    location.reload();
     });
 
