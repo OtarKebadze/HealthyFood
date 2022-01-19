@@ -7,12 +7,13 @@ import {nuestrosProductos} from './productos.js'
 /* Creando carrito vacio*/
 const carrito = new Carrito ();
 
-console.log( carrito.listaItems());
+console.log(carrito.listaItems());
 
 /* Renderizo la lista*/
 for ( const producto of nuestrosProductos){
     $('#productos__contenido').append(`<li id="${producto.id}">${producto.nombre} </li>`);
     $(`#${producto.id}`).click(function(){
+    carrito.createItem();
     ($("#tuCompra").append(`<li>${producto.nombre}</li>`));
     })
 };
@@ -21,8 +22,7 @@ $("#botonCompra").click(function(){
     alert( `Gracias por comprar ${ JSON.stringify(carrito.listaItems())}`)
     });
 
-
     $("#botonCancela").click(function(){
-    alert("vacio la lista");
+    localStorage.clear();
     });
 
