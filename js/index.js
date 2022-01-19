@@ -7,6 +7,8 @@ import {nuestrosProductos} from './productos.js'
 /* Creando carrito vacio*/
 const carrito = new Carrito ();
 
+console.log( carrito.listaItems());
+
 /* Renderizo la lista*/
 for ( const producto of nuestrosProductos){
     $('#productos__contenido').append(`<li id="${producto.id}">${producto.nombre} </li>`);
@@ -16,7 +18,7 @@ for ( const producto of nuestrosProductos){
 };
 /*Botones Compra*/
 $("#botonCompra").click(function(){
-    alert (`Gracias por realizar su compra`);
+    alert( `Gracias por comprar ${ JSON.stringify(carrito.listaItems())}`)
     });
 
 
