@@ -14,7 +14,7 @@ for ( const producto of nuestrosProductos){
     $('#listaProductos').append(`<li id="${producto.id}" class="productoNombre">${producto.nombre}</li><p id="precioProducto">$${producto.precio}</p>`);
     $(`#${producto.id}`).click(function(){
     const nombreEnsalada = document.getElementsByClassName("productoNombre")
-    if( nombreEnsalada.innerText == producto.nombre){
+    if( nombreEnsalada.innerText === producto.nombre){
         alert(`${producto.nombre} ya se encuentra en el carrito`)
         return
     }else{
