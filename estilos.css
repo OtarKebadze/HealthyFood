@@ -16,11 +16,13 @@
     color:#0e0c0c;
     margin: 1rem;
 }
-#tuCompra{
-    height:100%;
-    word-wrap: break-word;
-    overflow-y: scroll;
+#cantidad{
+    width: 2rem;
+    border: black 1px solid;
+    text-align: center;
+    margin-left:1rem;
 }
+
 body{
     display: grid;
     grid-template-areas:'nav nav'
@@ -44,34 +46,56 @@ body{
 .principal__productos{
     display: flex;
     justify-content: flex-end;
-    
+    height: min-content;
+    width: 50%;
+    height: 100%;
+}
+.principal__compra{
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    height: 80vh;
 }
 .contenedor{
     grid-area: cuerpo;
     display: flex;
+    height: 80%;
     width: 100%;
     justify-content: center;
 }
 .productos__contenido{
     font-size: 1.5rem;
     font-weight: 1000;
-    line-height: 2rem;
+    line-height: 1.8rem;
     cursor: pointer;
+}
+.contenedor__productos{
+    margin-top: 2rem;
+    grid-area:cuerpo;
+    width: 50%;
+    height:fit-content;
+    border: 1px solid black;
+    background-color: #b56357;
 }
 .compra{
     grid-area: cuerpo;
-    width: 15%;
+    width: 80%;
+    height: 60%;
     border: 1px solid black;
     background-color: #b56357;
-    width: 20rem;
-    height: 40rem;
     margin: 2rem;
 }
-.compra__contenido, .productos__contenido{
+.productos__contenido{
     text-align: center;
     font-size: 1.5rem;
-    height: 30rem;
-    padding: 1rem;
+    padding: 1rem 1rem 0rem 1rem;
+}
+.compra__contenido{
+    word-wrap: break-word;
+    overflow-y: scroll;
+    height: 350px;
+    font-size: 1.5rem;
+    padding: 1rem 1rem 0rem 1rem;
 }
 .contenedor__boton{
     grid: bottom;
@@ -80,7 +104,6 @@ body{
     width: 100vw;
     gap: 1rem;
 }
-
 .boton__compra , .boton__compraCancela{
     background-color: #a7b3a5;
     color: rgb(29, 80, 29);
@@ -90,7 +113,9 @@ body{
     width: fit-content;
     height: 5rem;
 }
-
-
-
-
+#totalCompra{
+    margin-top:8rem;
+    margin-left:-10rem;
+    text-align: center;
+    font-size: 3rem;
+}
