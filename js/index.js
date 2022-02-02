@@ -10,7 +10,7 @@ const carrito = new Carrito ();
 console.log(carrito.listaItems());
 
 /* Renderizo la lista*/
-for ( const producto of nuestrosProductos){
+for ( let producto of nuestrosProductos){
     $('#listaProductos').append(`<li id="${producto.id}" class="productoNombre">${producto.nombre}</li><p id="precioProducto">$${producto.precio}</p>`);
     $(`#${producto.id}`).click(function(){
     carrito.createItem(producto);
