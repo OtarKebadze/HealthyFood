@@ -17,9 +17,8 @@ for ( const producto of nuestrosProductos){
     const nombreEnsalada = document.getElementsByClassName("productoNombre")
     if( nombreEnsalada.innerText == producto.nombre){
         alert(`${producto.nombre} ya se encuentra en el carrito`)
-        return
     }else{
-    ($("#tuCompra").append(`<li>${producto.nombre}<input id="cantidad" type="number" value=1> <button id="elimina">Eliminar`));
+    ($("#tuCompra").append(`<li>${producto.nombre}<input id="cantidad" type="number" value=1><button id="elimina">Eliminar</button>`));
     }
     }
     })
@@ -35,4 +34,14 @@ $("#botonCancela").click(function(){
     location.reload();
     })
 
-
+$("#elimina").click(function(){
+        alert(`holaaaaaaa`);
+        })
+/*PRECIO FINAL*/
+for (const preciosProductos of nuestrosProductos){
+        precio = preciosProductos.precio;
+        cantidadProducto = document.getElementById("cantidad");
+        cantidad= cantidadProducto.value;
+        precioTotal= precioProducto * cantidad;
+    $("#totalCompra").append(`<p id='titulo'> ${precioTotal}} </p>`)
+    }
