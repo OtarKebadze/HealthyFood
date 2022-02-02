@@ -17,9 +17,9 @@ for ( const producto of nuestrosProductos){
     const nombreEnsalada = document.getElementsByClassName("productoNombre")
     if( nombreEnsalada.innerText == producto.nombre){
     alert(`${producto.nombre} ya se encuentra en el carrito`)
-    else{
-    ($("#tuCompra").append(`<li>${producto.nombre}<input id="cantidad" type="number" value=1><button id="elimina">Eliminar</button>`));
-    }
+    
+}else{
+($("#tuCompra").append(`<li>${producto.nombre}<input id="cantidad" type="number" value=1><button id="elimina">Eliminar</button>`));
 }
 }
 })
