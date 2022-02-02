@@ -13,8 +13,9 @@ console.log(carrito.listaItems());
 for ( const producto of nuestrosProductos){
     $('#listaProductos').append(`<li id="${producto.id}" class="productoNombre">${producto.nombre}</li><p id="precioProducto">$${producto.precio}</p>`);
     $(`#${producto.id}`).click(function(){
+    let productoComprado=carrito.createItem(producto);
     const nombreEnsalada = document.getElementsByClassName("productoNombre")
-    if (nombreEnsalada.innerText == producto.nombre){
+    if (nombreEnsalada.innerText == productoComprado.nombre){
     alert(`${producto.nombre} ya se encuentra en el carrito`)
     }else{
     ($("#tuCompra").append(`<li>${producto.nombre}<input id="cantidad" type="number" value=1><button id="elimina">Eliminar</button>`));
