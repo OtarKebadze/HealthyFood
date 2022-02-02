@@ -14,8 +14,8 @@ for ( let producto of nuestrosProductos){
     $('#listaProductos').append(`<li id="${producto.id}" class="productoNombre">${producto.nombre}</li><p id="precioProducto">$${producto.precio}</p>`);
     $(`#${producto.id}`).click(function(){
     carrito.createItem(producto);
-    ($("#tuCompra").append(`<li>${producto.nombre}<input id="cantidad" type="number" value=1><button id="elimina">Eliminar</button>`));
-    for (let i = 0; i < producto.length; i++) {
+    for (let i = 0; i < carrito.length; i++) {
+        ($("#tuCompra").append(`<li>${producto.nombre}<input id="cantidad" type="number" value=1><button id="elimina">Eliminar</button>`));
     if ( producto.id == carrito.id) {
         alert('Este producto ya se encuentra en el carrito')
         return
