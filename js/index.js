@@ -7,22 +7,29 @@ import {nuestrosProductos} from './productos.js'
 /* Creando carrito vacio*/
 const carrito = new Carrito ();
 
-console.log(carrito.listaItems());
 
 /* Renderizo la lista*/
+
+
 for ( let producto of nuestrosProductos){
     $('#listaProductos').append(`<li id="${producto.id}" class="productoNombre">${producto.nombre}</li><p id="precioProducto">$${producto.precio}</p>`);
     $(`#${producto.id}`).click(function(){
     carrito.createItem(producto);
-    for (let i = 0; i < carrito.length; i++) {
-        ($("#tuCompra").append(`<li>${producto.nombre}<input id="cantidad" type="number" value=1><button id="elimina">Eliminar</button>`));
-    if ( producto.id == carrito.id) {
-        alert('Este producto ya se encuentra en el carrito')
-        return
+    let nombreEnsalada = document.getElementsByClassName("compra__contenido");
+    if( producto.nombre !== nombreEnsalada.innerText){
+    ($("#tuCompra").append(`<li>${producto.nombre}<input id="cantidad" type="number" value=${producto.cant}><button id="elimina">Eliminar</button>`));
+    }else{
+    alert(`el item ${producto.nombre} ya existe en el carrito`)
     }
-}
 })
 }
+/*Botones UP y DOWN Input*/
+$("#cantidad").on("keyup",function(){
+    alert("hola")
+});
+$("#cantidad").on("keydown",function(){
+    alert("hola2")
+});
 
 /*Botones*/
 $("#botonCompra").click(function(){
@@ -33,7 +40,7 @@ $("#botonCompra").click(function(){
 $("#botonCancela").click(function(){
     localStorage.clear();
     location.reload();
-})
+});
 
 $("#elimina").click(function(){
     alert(`holaaaaaaa`);
