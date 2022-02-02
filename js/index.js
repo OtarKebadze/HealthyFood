@@ -13,12 +13,14 @@ console.log(carrito.listaItems());
 for ( const producto of nuestrosProductos){
     $('#listaProductos').append(`<li id="${producto.id}" class="productoNombre">${producto.nombre}</li><p id="precioProducto">$${producto.precio}</p>`);
     $(`#${producto.id}`).click(function(){
+    for (let i=0 ; i < nuestrosProductos.lenght ; i++){
     const nombreEnsalada = document.getElementsByClassName("productoNombre")
-    if( nombreEnsalada.innerText === producto.nombre){
+    if( nombreEnsalada.innerText == producto.nombre){
         alert(`${producto.nombre} ya se encuentra en el carrito`)
         return
     }else{
     ($("#tuCompra").append(`<li>${producto.nombre}<input id="cantidad" type="number" value=1> <button id="elimina">Eliminar`));
+    }
     }
     })
     }
@@ -33,14 +35,4 @@ $("#botonCancela").click(function(){
     location.reload();
     })
 
-$("#elimina").click(function(){
-    alert(`holaaaaaaa`);
-    })
-/*PRECIO FINAL*/
-for (const preciosProductos of nuestrosProductos){
-    precio = preciosProductos.precio;
-    cantidadProducto = document.getElementById("cantidad");
-    cantidad= cantidadProducto.value;
-    precioTotal= precioProducto * cantidad;
-    $("#totalCompra").append(`<p id='titulo'> ${precioTotal}} </p>`)
-}
+
