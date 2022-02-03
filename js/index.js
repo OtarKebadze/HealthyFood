@@ -2,8 +2,6 @@ import {Carrito} from "./carrito.js";
 import {Producto} from "./funcionProducto.js";
 import {nuestrosProductos} from './productos.js'
 
-
-
 /* Creando carrito vacio*/
 const carrito = new Carrito ();
 
@@ -26,6 +24,11 @@ for ( let producto of nuestrosProductos){
     $(this).remove();
         });
 })
+$('input#cantidad').change(function(){
+    var cantidadProducto =$(this).val()*producto.precio;
+    $("#totalCompra").append(`<p>$${cantidadProducto}</p>`)
+});
+$('input#cantidad').trigger('change');
 } else {
     alert(`el item ${producto.nombre} ya existe en el carrito`)
 }
@@ -46,11 +49,6 @@ $("#botonCancela").click(function(){
 });
 
 
-$(document).delegate("button#elimina","click",function(){
-    var idBoton =$(this).data('id');
-    carrito.deleteItem(idBoton);
-    $(this).parent().fadeOut(function(){
-        $(this).remove();
-        verdadero=false;
-    })
+$(document).delegate("input#cantidad","change",function(){
+    
 });
