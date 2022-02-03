@@ -14,7 +14,7 @@ for ( let producto of nuestrosProductos){
     $(`#${producto.id}`).click(function(){
     carrito.createItem(producto);
     if( verdadero == false ){
-    ($("#tuCompra").append(`<li>${producto.nombre}<input id="cantidad" type="number" min="1" value=1><button id="elimina" data-id="${producto.id}">Eliminar</button>`));
+    ($("#tuCompra").append(`<li>${producto.nombre}<input id="cantidad" type="number" min="1" value=1><button id="elimina" data-id="${producto.id}">X</button>`));
     verdadero = true;
     $('button#elimina').click(function(){
     verdadero = false;
@@ -28,7 +28,6 @@ $('input#cantidad').change(function(){
     var cantidadProducto =$(this).val()*producto.precio;
     $("#totalCompra").append(`<p>$${cantidadProducto}</p>`)
 });
-$('input#cantidad').trigger('change');
 } else {
     alert(`el item ${producto.nombre} ya existe en el carrito`)
 }
