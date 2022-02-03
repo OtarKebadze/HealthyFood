@@ -25,11 +25,11 @@ for ( let producto of nuestrosProductos){
 })
 }
 /*Botones UP y DOWN Input*/
-$("#cantidad").on("keyup",function(){
+$(document).delegate("li#cantidad","change",function(){
     alert("hola")
 });
 $("#cantidad").keydown(function(){
-    alert("hola2")
+    console.log("hola")
 });
 
 /*Botones*/
