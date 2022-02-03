@@ -28,6 +28,7 @@ $('input#cantidad').change(function(){
     var cantidadProducto =$(this).val()*producto.precio;
     $("#totalCompra").append(`<p>$${cantidadProducto}</p>`)
 });
+$("input#cantidad").trigger("change")
 } else {
     alert(`el item ${producto.nombre} ya existe en el carrito`)
 }
