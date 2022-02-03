@@ -16,21 +16,15 @@ for ( let producto of nuestrosProductos){
     $(`#${producto.id}`).click(function(){
     carrito.createItem(producto);
     if( verdadero == false ){
-    ($("#tuCompra").append(`<li>${producto.nombre}<input id="cantidad" type="number" value=${producto.cant}><button id="elimina">Eliminar</button>`));
+    ($("#tuCompra").append(`<li>${producto.nombre}<input id="cantidad" type="number" min="1" value=1 onclick="carrito.deleteItem()"><button id="elimina">Eliminar</button>`));
     verdadero=true;
     }else{
     alert(`el item ${producto.nombre} ya existe en el carrito`)
-
     }
 })
 }
 /*Botones UP y DOWN Input*/
-$(document).delegate("li#cantidad","change",function(){
-    alert("hola")
-});
-$("#cantidad").keydown(function(){
-    console.log("hola")
-});
+
 
 /*Botones*/
 $("#botonCompra").click(function(){
@@ -44,9 +38,13 @@ $("#botonCancela").click(function(){
     location.reload();
 });
 
-$("#elimina").click(function(){
-    alert(`holaaaaaaa`);
-})
+
+for ( let deleted in nuestrosProductos){
+$(document).delegate("button#elimina","click",function(){
+    carrito.deleteItem(deleted)
+});
+}
+
 /*PRECIO FINAL*/
 
 
