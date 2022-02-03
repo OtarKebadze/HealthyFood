@@ -40,9 +40,9 @@ $("#botonCancela").click(function(){
 
 
 for ( let deleted of nuestrosProductos){
-let index= deleted.id
+let ind = deleted.id
 $(document).delegate("button#elimina","click",function(){
-carrito.deleteItem(index)
+carrito.deleteItem(ind)
 });
 }
 
