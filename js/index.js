@@ -49,6 +49,3 @@ $("#botonCancela").click(function(){
 });
 
 
-$(document).delegate("input#cantidad","change",function(){
-    
-});
