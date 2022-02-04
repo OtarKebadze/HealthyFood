@@ -7,4 +7,3 @@ export class Producto {
         this.stock=stock;
     }
 }
-

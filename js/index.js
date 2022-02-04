@@ -9,12 +9,16 @@ for ( let producto of nuestrosProductos){
     $('#listaProductos').append(`<li id="${producto.id}" class="productoNombre">${producto.nombre}</li><p id="precioProducto">$${producto.precio}</p>`);
     $(`#${producto.id}`).click(function(){
     let carrito=new Carrito;
-    console.log(carrito);
     carrito.createItem(producto);
-    console.log(carrito)
+    const nuevoCarrito=JSON.parse(localStorage.getItem("compra"));
+    ($("#tuCompra").append(`<li id="productoNombre">${producto.nombre}<input id="cantidad" type="number" min="1" value=1><button id="elimina" data-id="${producto.id}">X</button>`));
+    for(let i = 0 ; i<nuevoCarrito.lenght; i++){
+    let nuevoCarritoProducto= document.getElemebntById("productoNombre")
+    if( producto.nombre == nuevoCarritoProducto.innerText){
+    alert(`el item ${producto.nombre} ya existe en el carrito`)
+    }}
     })
     }
-
 
 /*Botones*/
 $("#botonCompra").click(function(){

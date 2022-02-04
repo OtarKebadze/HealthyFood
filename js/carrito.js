@@ -1,6 +1,6 @@
 export class Carrito {
     constructor() {
-        this.lista = JSON.parse(localStorage.getItem('carrito')) || [];
+        this.lista = JSON.parse(localStorage.getItem('compra')) || [];
     }
     listaItems() {
         return this.lista;
@@ -8,6 +8,7 @@ export class Carrito {
     createItem(item) {
         this.lista.push(item);
         localStorage.setItem("compra",JSON.stringify(this.lista));
+        
     }
     findItemById(itemId) {
         const item = this.lista.find(element => element.id == itemId);
