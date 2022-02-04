@@ -116,8 +116,8 @@ body{
     height: 5rem;
 }
 #totalCompra{
-    margin-top:8rem;
-    margin-left:-10rem;
+    margin-top: 6rem;
     text-align: center;
     font-size: 3rem;
+    width: 100%;
 }
