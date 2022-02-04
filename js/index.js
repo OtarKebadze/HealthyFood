@@ -16,6 +16,7 @@ for ( let producto of nuestrosProductos){
     let nuevoCarritoProducto= document.getElemebntById("productoNombre")
     if( producto.nombre == nuevoCarritoProducto.innerText){
     alert(`el item ${producto.nombre} ya existe en el carrito`)
+    return
     }}
     })
     }

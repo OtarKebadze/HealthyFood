@@ -1,6 +1,6 @@
 export class Carrito {
     constructor() {
-        this.lista = JSON.parse(localStorage.getItem('compra')) || [];
+        this.lista = JSON.parse(localStorage.getItem("compra")) || [];
     }
     listaItems() {
         return this.lista;
