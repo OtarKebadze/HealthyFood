@@ -1,3 +1,4 @@
+import {nuestrosProductos} from "./productos.js";
 export class Carrito {
     constructor() {
         this.lista = JSON.parse(localStorage.getItem("compra")) || [];
@@ -17,7 +18,7 @@ export class Carrito {
     addItem(id){
     const item = nuestrosProductos.find( (item) => item.id === Number(id));
     if (item){
-    this.lista.push( ...item , {cant:1});
+    this.lista.push( {...item , cant:1});
     }
     this.updateChanges();
     }
@@ -35,7 +36,7 @@ export class Carrito {
         newCant = Number(cant);
             }
         }
-        return {...item, cant: newCant };
+        return { ...item, cant:newCant };
         });
         this.updateChanges(carritoItems);
     }
@@ -48,11 +49,12 @@ export class Carrito {
 
     calculateTotal() {
     let totalPrice=0;
+    let totalCant=0;
     this.lista.forEach((item)=>{
     totalPrice += item.cant * item.precio;
-    totalCant += item.cant;ç
+    totalCant += item.cant;
     });
     this.total= totalPrice;
-    this.cant= totalCant;
+    this.cant = totalCant;
     }
 }

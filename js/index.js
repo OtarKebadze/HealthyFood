@@ -6,10 +6,10 @@ const carrito = new Carrito();
 
 //Etiquetas html a utilizar
 const itemsProduct = (item)=>{
-    return `<li id="${item.id}" class="productoNombre">${item.nombre}</li><p id="precioProducto" data-id="${item.id}">$${item.precio}</p>`
+    return `<li id="${item.id}" class="productoNombre" data-id="${item.id}">${item.nombre}</li><p id="precioProducto" >$${item.precio}</p>`
 }
 const itemsCarrito = (item)=>{
-    return`<li id="productoNombre">${item.nombre}<input id="cantidad" type="number" min="1" value=1><button id="elimina" data-id="${item.id}">X</button><p id="precioProducto2">$${item.precio}</p>`
+    return`<li id="productoNombre">${item.nombre}<input class="cantidad" type="number" min="1" value=1><button class="elimina" data-id="${item.id}">X</button><p>$${item.precio}</p>`
 }
 
 
@@ -47,8 +47,9 @@ function renderCarrito(){
 //Boton para agregar a Carrito del HTML
 $("#productos__contenido").on("click",".productoNombre",function(){
     const idProd = $(this).attr("data-id");
+    console.log(idProd);
     if (carrito.findItem(idProd)){
-    alert(" Este producto se encuentra en el carrito")
+    alert("Este producto se encuentra en el carrito")
     }else{
     carrito.addItem(idProd);
     }
@@ -56,13 +57,13 @@ $("#productos__contenido").on("click",".productoNombre",function(){
 });
 
 //Eliminar un objeto Carrito
-$("#tuCompra").on("click", "button#elimina", function(){
+$("#tuCompra").on("click", "button.elimina", function(){
 const idProd = $(this).attr("data-id");
 carrito.deleteItem(idProd);
 updateCarrito();
 })
 //Tomar cantidad del input
-$("tuCompra").on("change", "input#cantidad", function(){
+$("#tuCompra").on("change", "input.cantidad", function(){
 const idProd = $(this).attr("data-id");
 const cant= $(this).value;
 carrito.updateItemCant(idProd,cant);
