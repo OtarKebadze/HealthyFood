@@ -32,15 +32,14 @@ for ( let producto of nuestrosProductos){
     });
     $("input#cantidad").trigger("change")
     //Recorre LS y no deja que se repita el producto
-    for(let i = 0 ; i<nuevoCarrito.lenght; i++){
-    if( producto.id == nuevoCarritoProducto[0]){
+    for(let i = 0 ; i<nuevoCarrito.length; i++){
+    if( producto.id == nuevoCarrito[0]){
     alert(`el item ${producto.nombre} ya existe en el carrito`)
     return
     }else{
     carrito.createItem(producto);
     }}
     })
-    
     }
 
 /*Botones extra*/
