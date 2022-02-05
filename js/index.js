@@ -24,7 +24,7 @@ renderList();
 
 function updateCarrito(){
     carrito.updateChanges();
-    renderCarrito()
+    renderCarrito();
     renderTotal();
 };
 
@@ -45,7 +45,7 @@ function renderCarrito(){
 
 //Eventos
 //Boton para agregar a Carrito del HTML
-$("#productosContenido").on("click",".productoNombre",function(){
+$("#productos__contenido").on("click",".productoNombre",function(){
     const idProd = $(this).attr("data-id");
     if (carrito.findItem(idProd)){
     alert(" Este producto se encuentra en el carrito")
