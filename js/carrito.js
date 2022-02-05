@@ -11,25 +11,24 @@ export class Carrito {
 
     findItem(ide){
         const id = Number(ide);
-        return this.lista.some( (item) => item.id === id);
+        return this.lista.some( (item) => item.id === Number(id));
     }
 
     addItem(id){
     const item = nuestrosProductos.find( (item) => item.id === Number(id));
     if (item){
-    const newItem = Object.assign ( item , {canti:1})
-    this.lista.push(newItem)
+    this.lista.push( ...item , {cant:1});
     }
     this.updateChanges();
     }
 
     deleteItem(id) {
-    let newCartItems= this.lista.filter((item)=> item.id !== Number(id) )
-    this.updateChanges(newCartItems)
+    let newCarritoItems= this.lista.filter((item)=> item.id !== Number(id) )
+    this.updateChanges(newCarritoItems)
     }
 
     updateItemCant(id, cant) {
-        let cartItems = this.lista.map((item) => {
+        let carritoItems = this.lista.map((item) => {
         let newCant = item.cant;
         if (item.id === Number(id)) {
             if (cant >= 1 && cant <= item.stock) {
@@ -38,10 +37,10 @@ export class Carrito {
         }
         return {...item, cant: newCant };
         });
-        this.updateChanges(cartItems);
+        this.updateChanges(carritoItems);
     }
 
-    updateChanges(newList = []){
+    updateChanges(newList = null){
         this.lista = newList || this.lista;
         this.calculateTotal();
         localStorage.setItem("compra", JSON.stringify(this.lista));
@@ -51,8 +50,9 @@ export class Carrito {
     let totalPrice=0;
     this.lista.forEach((item)=>{
     totalPrice += item.cant * item.precio;
-    totalCant += item.cant;
+    totalCant += item.cant;ç
     });
     this.total= totalPrice;
+    this.cant= totalCant;
     }
 }

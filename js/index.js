@@ -16,7 +16,7 @@ const itemsCarrito = (item)=>{
 // Funciones a utilizar
 function renderList(){
 nuestrosProductos.forEach((item)=>{
-$("#principalProductos").append(itemsProduct(item))
+$("#productos__contenido").append(itemsProduct(item))
 });
 };
 
@@ -50,7 +50,7 @@ $("#productosContenido").on("click",".productoNombre",function(){
     if (carrito.findItem(idProd)){
     alert(" Este producto se encuentra en el carrito")
     }else{
-    carrito.addItem(idProd)
+    carrito.addItem(idProd);
     }
     updateCarrito();
 });
