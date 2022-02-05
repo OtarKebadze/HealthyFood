@@ -1,5 +1,5 @@
 export const nuestrosProductos = [
-    {id:1 , nombre :'Ensalada cesar' , precio: 250 ,stock: 3},
+    {id:1 , nombre :'Ensalada cesar' , precio: 250 ,stock: 5},
     {id:2 , nombre:'Ensalada mix de hojas verdes' , precio: 180 , stock: 8},
     {id:3 , nombre :'Ensalada mixta pollo' ,precio: 230 , stock: 20},
     {id:4 , nombre :'Ensalada mixta con lomito de atun' , precio: 250 , stock: 15},

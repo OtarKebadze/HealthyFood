@@ -121,3 +121,12 @@ body{
     font-size: 3rem;
     width: 100%;
 }
+.cantidad{
+    width: 25px;
+    height: 25px;
+    border-radius: 2px;
+}
+.elimina{
+    width: 15px;
+    height: 20px;
+}

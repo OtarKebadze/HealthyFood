@@ -34,7 +34,7 @@ export class Carrito {
         if (item.id === Number(id)) {
             if (cant >= 1 && cant <= item.stock) {
         newCant = Number(cant);
-            }
+        }
         }
         return { ...item, cant:newCant };
         });
