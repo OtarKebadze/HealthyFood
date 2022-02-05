@@ -1,26 +1,60 @@
 export class Carrito {
     constructor() {
         this.lista = JSON.parse(localStorage.getItem("compra")) || [];
+        this.total=0;
+        this.cantidad=0;
     }
+
     listaItems() {
         return this.lista;
     }
-    createItem(item) {
-        this.lista.push(item);
-        localStorage.setItem("compra",JSON.stringify(this.lista));
-        
+
+    checkItem(ide){
+        const id = Number(ide);
+        return this.lista.some( (item) => item.id === id);
     }
-    findItemById(itemId) {
-        const item = this.lista.find(element => element.id == itemId);
-        if (!itemId) {
-            throw new Error('No existe el item!!! ' + itemId);
+
+    addItem(id){
+    const item = nuestrosProductos.find( (item) => item.id === Number(id));
+    if (item){
+    const newItem = Object.assign ( item , {canti:1})
+    this.lista.push(newItem)
+    }
+    this.updateChanges();
+    }
+
+    deleteItem(id) {
+    let newCartItems= this.lista.filter((item)=> item.id !== Number(id) )
+    this.updateChanges(newCartItems)
+    }
+
+    updateQuantityItem(id, cant) {
+        let cartItems = this.lista.map((item) => {
+        let newCant = item.cant;
+        if (item.id === Number(id)) {
+            if (cant >= 1 && cant <= item.stock) {
+        newCant = Number(cant);
+            }
         }
-        return item;
+        return {...item, cant: newCant };
+        });
+        this.updateChanges(cartItems);
     }
-    deleteItem(itemId) {
-        const item = this.findItemById(itemId);
-        const index = this.lista.indexOf(item);
-        this.lista.splice(index, 1);
-        localStorage.setItem("compra", JSON.stringify(this.lista))
+
+    updateChanges(newList = []){
+        this.lista = newList || this.lista;
+        this.calculateTotal();
+        localStorage.setItem("compra", JSON.stringify(this.lista));
+    }
+
+    calculateTotal() {
+    let totalPrice=0;
+    let totalItems = 0
+    this.lista.forEach((item)=>{
+    totalPrice += item.cant * item.precio;
+    totalCant += item.cant;
+    });
+    this.numberItems= totalItems;
+    this.total= totalPrice;
     }
 }
