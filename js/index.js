@@ -15,7 +15,7 @@ const itemsCarrito = (item)=>{
 
 // Funciones a utilizar
 function renderList(){
-nuestrosProductos.foreach((item)=>{
+nuestrosProductos.forEach((item)=>{
 $("#principalProductos").append(itemsProduct(item))
 });
 };
@@ -38,7 +38,7 @@ renderTotal();
 
 function renderCarrito(){
     $("#tuCompra").empty();
-    carrito.forEach((item)=>{
+    carrito.listaItems().forEach((item)=>{
     $("#tuCompra").append(itemsCarrito(item));
     });
     }
