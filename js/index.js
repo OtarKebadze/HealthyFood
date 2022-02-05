@@ -9,7 +9,7 @@ const itemsProduct = (item)=>{
     return `<li id="${item.id}" class="productoNombre" data-id="${item.id}">${item.nombre}</li><p id="precioProducto" >$${item.precio}</p>`
 }
 const itemsCarrito = (item)=>{
-    return`<li id="productoNombre">${item.nombre}<input class="cantidad" type="number" min="1" value=1 data-id="${item.id}"><button class="elimina" data-id="${item.id}">X</button><p>$${item.precio}</p>`
+    return`<li id="productoNombre">${item.nombre}<input class="cantidad" type="number" value=${item.cant} data-id="${item.id}"><button class="elimina" data-id="${item.id}">X</button><p>$${item.precio}</p>`
 }
 
 

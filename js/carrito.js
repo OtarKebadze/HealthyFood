@@ -28,7 +28,7 @@ export class Carrito {
     this.updateChanges(newCarritoItems)
     }
     updateItemCant(id, cant) {
-        let carritoItems = this.list.map((item) => {
+        let carritoItems = this.lista.map((item) => {
         let newCant = item.cant;
         if (item.id === Number(id)) {
         if (cant >= 1 && cant <= item.stock) {
