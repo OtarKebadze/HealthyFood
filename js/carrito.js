@@ -27,21 +27,21 @@ export class Carrito {
     let newCarritoItems= this.lista.filter((item)=> item.id !== Number(id) )
     this.updateChanges(newCarritoItems)
     }
-
     updateItemCant(id, cant) {
-        let carritoItems = this.lista.map((item) => {
+        let carritoItems = this.list.map((item) => {
         let newCant = item.cant;
         if (item.id === Number(id)) {
-            if (cant >= 1 && cant <= item.stock) {
+        if (cant >= 1 && cant <= item.stock) {
         newCant = Number(cant);
         }
         }
-        return { ...item, cant:newCant };
+        return { ...item, cant: newCant };
         });
+    
         this.updateChanges(carritoItems);
     }
 
-    updateChanges(newList = null){
+    updateChanges(newList = null ){
         this.lista = newList || this.lista;
         this.calculateTotal();
         localStorage.setItem("compra", JSON.stringify(this.lista));
