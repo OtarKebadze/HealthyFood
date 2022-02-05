@@ -24,7 +24,7 @@ renderList();
 
 function updateCarrito(){
     carrito.updateChanges();
-    renderList()
+    renderCarrito()
     renderTotal();
 };
 
