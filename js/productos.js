@@ -9,4 +9,4 @@ export const nuestrosProductos = [
     {id:8 ,nombre :'Ensalada palta y mango' ,precio: 300  , stock: 2},
     {id:9 ,nombre :'Ensalada rusa' , precio: 250 ,stock: 3},
     {id:10 ,nombre :'Ensalada waldorf' , precio: 290 ,  stock: 10}
-    ]
+    ];

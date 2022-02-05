@@ -9,7 +9,7 @@ export class Carrito {
         return this.lista;
     }
 
-    checkItem(ide){
+    findItem(ide){
         const id = Number(ide);
         return this.lista.some( (item) => item.id === id);
     }
@@ -28,7 +28,7 @@ export class Carrito {
     this.updateChanges(newCartItems)
     }
 
-    updateQuantityItem(id, cant) {
+    updateItemCant(id, cant) {
         let cartItems = this.lista.map((item) => {
         let newCant = item.cant;
         if (item.id === Number(id)) {
@@ -49,12 +49,10 @@ export class Carrito {
 
     calculateTotal() {
     let totalPrice=0;
-    let totalItems = 0
     this.lista.forEach((item)=>{
     totalPrice += item.cant * item.precio;
     totalCant += item.cant;
     });
-    this.numberItems= totalItems;
     this.total= totalPrice;
     }
 }
