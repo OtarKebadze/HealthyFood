@@ -11,8 +11,7 @@ for ( let producto of nuestrosProductos){
     //Evento de click
     $(`#${producto.id}`).click(function(){
     //Crea un carrito vacio
-        let carrito=new Carrito;
-    carrito.createItem(producto);
+    let carrito=new Carrito;
     //Recupera datos de carrito y los guarda en una nueva variable
     const nuevoCarrito=JSON.parse(localStorage.getItem("compra"));
     //Pasa los elementos al carrito del dom
@@ -34,10 +33,11 @@ for ( let producto of nuestrosProductos){
     $("input#cantidad").trigger("change")
     //Recorre LS y no deja que se repita el producto
     for(let i = 0 ; i<nuevoCarrito.lenght; i++){
-    let nuevoCarritoProducto = document.getElemebntById("productoNombre")
-    if( producto.nombre == nuevoCarritoProducto.innerText){
+    if( producto.id == nuevoCarritoProducto[0]){
     alert(`el item ${producto.nombre} ya existe en el carrito`)
     return
+    }else{
+    carrito.createItem(producto);
     }}
     })
     
